@@ -4,6 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * 
+ */
 public class SystemResourceFinder implements ResourceFinder {
 
     private static final ResourceFinder INSTANCE = new SystemResourceFinder();
@@ -13,6 +16,10 @@ public class SystemResourceFinder implements ResourceFinder {
         return new FileInputStream(fileName);
     }
 
+    /**
+     * 
+     * @return
+     */
     public static ResourceFinder getInstance() {
         return INSTANCE;
     }

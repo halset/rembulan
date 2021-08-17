@@ -185,6 +185,9 @@ public class StringPattern {
 		return MAGIC_CHARS.indexOf(c) != -1;
 	}
 
+	/**
+	 * 
+	 */
 	public static class Match {
 
 		private final String originalString;
@@ -192,6 +195,13 @@ public class StringPattern {
 		private final int endIndex;
 		private final List<Object> captures;
 
+		/**
+		 * 
+		 * @param originalString the original String
+		 * @param beginIndex the beginning index of the match
+		 * @param endIndex the end index of the match
+		 * @param captures the captures
+		 */
 		protected Match(String originalString, int beginIndex, int endIndex, List<Object> captures) {
 			this.originalString = Objects.requireNonNull(originalString);
 			this.beginIndex = beginIndex;
@@ -199,29 +209,49 @@ public class StringPattern {
 			this.captures = Objects.requireNonNull(captures);
 		}
 
+		/**
+		 * @return the original String
+		 */
 		public String originalString() {
 			return originalString;
 		}
 
+		/**
+		 * @return a int with the index of the start of the match
+		 */
 		public int beginIndex() {
 			return beginIndex;
 		}
 
+        /**
+         * @return a int with the index of the end of the match
+         */
 		public int endIndex() {
 			return endIndex;
 		}
 
+		/**
+		 * @return a String with the match. That is a substring of the {@link #originalString()}
+		 */
 		public String fullMatch() {
 			return originalString.substring(beginIndex, endIndex);
 		}
 
+		/**
+		 * @return a {@link List} of the captures.
+		 */
 		public List<Object> captures() {
 			return captures;
 		}
 
 	}
 
-	// returns null to signal no-match
+	/**
+	 * 
+	 * @param s a {@link String} to use for matching.
+	 * @param fromIndex a int with the index to match from.
+	 * @return return a Match or null to signal no-match.
+	 */
 	public Match match(String s, int fromIndex) {
 		// iterate one character beyond the last one: empty matches succeed at EOS
 		while (fromIndex >= 0 && fromIndex <= s.length()) {
@@ -1224,10 +1254,19 @@ public class StringPattern {
 
 	}
 
+    /**
+     * @param pattern a String with the pattern to create the StringPattern from.
+     * @param ignoreCaret a boolean to control if caret is to be ignored.
+     * @return the created StrintPattern
+     */
 	public static StringPattern fromString(String pattern, boolean ignoreCaret) {
 		return new PatternBuilder(pattern, ignoreCaret).parse();
 	}
 
+	/**
+	 * @param pattern a String with the pattern to create the StringPattern from
+	 * @return the created StrintPattern
+	 */
 	public static StringPattern fromString(String pattern) {
 		return fromString(pattern, false);
 	}

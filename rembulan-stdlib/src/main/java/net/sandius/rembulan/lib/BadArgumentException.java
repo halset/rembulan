@@ -21,8 +21,21 @@ package net.sandius.rembulan.lib;
  */
 public class BadArgumentException extends IllegalArgumentException {
 
-	private final int idx;
+    private static final long serialVersionUID = 1L;
+    
+    /**
+     * 
+     */
+    private final int idx;
+    
+    /**
+     * 
+     */
 	private final String name;
+	
+	/**
+	 * 
+	 */
 	private final String message;
 
 	/**

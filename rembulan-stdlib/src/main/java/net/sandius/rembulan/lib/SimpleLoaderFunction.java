@@ -24,10 +24,17 @@ import net.sandius.rembulan.runtime.ResolvedControlThrowable;
 
 import java.util.Objects;
 
+/**
+ * 
+ */
 public abstract class SimpleLoaderFunction extends AbstractLibFunction {
 
 	private final Table env;
 
+	/**
+	 * 
+	 * @param env a {@link Table} with the env to do this in.
+	 */
 	public SimpleLoaderFunction(Table env) {
 		this.env = Objects.requireNonNull(env);
 	}
@@ -37,6 +44,14 @@ public abstract class SimpleLoaderFunction extends AbstractLibFunction {
 		return "(" + this.getClass().getName() + ")";
 	}
 
+	/**
+	 * 
+	 * @param context a {@link StateContext}
+	 * @param env a {@link Table} with the env to do this in.
+	 * @param modName the mod name
+	 * @param origin the origin
+	 * @return 
+	 */
 	public abstract Object install(StateContext context, Table env, ByteString modName, ByteString origin);
 
 	@Override

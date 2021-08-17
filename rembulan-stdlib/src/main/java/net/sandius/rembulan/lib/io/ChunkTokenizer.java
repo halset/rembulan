@@ -4,15 +4,26 @@ import java.nio.ByteBuffer;
 
 import net.sandius.rembulan.ByteString;
 
+/**
+ * 
+ */
 public class ChunkTokenizer extends AbstractTokenizer<ByteString> {
 
   private long length;
   private long count;
 
+  /**
+   * 
+   * @param byteBuffer the byte buffer to use
+   */
   public ChunkTokenizer(ByteBuffer byteBuffer) {
     super(byteBuffer);
   }
 
+  /**
+   * 
+   * @param length a long with the length to set
+   */
   public void setLength(long length) {
     this.length = length;
   }

@@ -55,6 +55,10 @@ public interface RuntimeEnvironment {
 	 */
 	FileSystem fileSystem();
 	
+	/**
+	 *
+	 * @return a {@link ResourceFinder}
+	 */
 	ResourceFinder resourceFinder();
 
 	/**

@@ -84,8 +84,8 @@ public final class BasicLib {
 
 	/**
 	 * The metatable key {@code "__metatable"}. When defined, customises the behaviour
-	 * of {@link #getmetatable() <code>getmetatable</code>}
-	 * and {@link #setmetatable() <code>setmetatable</code>}.
+	 * of {@link #getmetatable() getmetatable}
+	 * and {@link #setmetatable() setmetatable}.
 	 */
 	public static final ByteString MT_METATABLE = ByteString.constOf("__metatable");
 
@@ -99,13 +99,13 @@ public final class BasicLib {
 
 	/**
 	 * The metatable key {@code "__pairs"}. When defined, customises the behaviour
-	 * of {@link #pairs() <code>pairs</code>}.
+	 * of {@link #pairs() pairs}.
 	 */
 	public static final ByteString MT_PAIRS = ByteString.constOf("__pairs");
 
 	/**
 	 * The metatable key {@code "__tostring"}. When defined, customises the behaviour
-	 * of {@link #tostring() <code>tostring</code>}.
+	 * of {@link #tostring() tostring}.
 	 */
 	public static final ByteString MT_TOSTRING = ByteString.constOf("__tostring");
 
@@ -145,7 +145,7 @@ public final class BasicLib {
 	 * <blockquote>
 	 * {@code assert (v [, message])}
 	 *
-	 * <p>Calls {@link #error() <code>error</code>} if the value of its argument {@code v}
+	 * <p>Calls {@link #error() error} if the value of its argument {@code v}
 	 * is false (i.e., <b>nil</b> or <b>false</b>); otherwise, returns all its arguments.
 	 * In case of error, {@code message} is the error object; when absent, it defaults
 	 * to {@code "assertion failed!"}</p>
@@ -233,7 +233,7 @@ public final class BasicLib {
 	 *
 	 * @param env  the default global environment for loaded chunks, may be {@code null}
 	 * @param loader  the chunk loader to use, must not be {@code null}
-	 * @param fileSystem  the file system to use, must not be {@code null}
+	 * @param resourceFinder  the resource finder to use, must not be {@code null}
 	 * @return  the {@code dofile} function
 	 *
 	 * @throws NullPointerException  if {@code fileSystem} or {@code loader} is {@code null}
@@ -282,7 +282,7 @@ public final class BasicLib {
 	 * {@code getmetatable (object)}
 	 *
 	 * <p>If {@code object} does not have a metatable, returns <b>nil</b>. Otherwise,
-	 * if the object's metatable has a {@link #MT_METATABLE <code>"__metatable"</code>} field,
+	 * if the object's metatable has a {@link #MT_METATABLE "__metatable"} field,
 	 * returns the associated value. Otherwise, returns the metatable of the given object.</p>
 	 * </blockquote>
 	 *
@@ -345,7 +345,7 @@ public final class BasicLib {
 	 * Other upvalues are initialized with <b>nil</b>. (When you load a main chunk, the resulting
 	 * function will always have exactly one upvalue, the {@code _ENV} variable
 	 * (see §2.2 of the Lua Reference Manual). However, when you load a binary chunk created
-	 * from a function (see {@link StringLib#dump() <code>string.dump</code>}), the resulting
+	 * from a function (see {@link StringLib#dump() string.dump}), the resulting
 	 * function can have an arbitrary number of upvalues.) All upvalues are fresh, that is,
 	 * they are not shared with any other function.</p>
 	 *
@@ -388,13 +388,13 @@ public final class BasicLib {
 	 * <blockquote>
 	 * {@code loadfile ([filename [, mode [, env]]])}
 	 *
-	 * <p>Similar to {@link Load <code>load</code>}, but gets the chunk from file
+	 * <p>Similar to {@link Load load}, but gets the chunk from file
 	 * {@code filename} or from the standard input, if no file name is given.</p>
 	 * </blockquote>
 	 *
 	 * @param env  the default global environment for loaded chunks, may be {@code null}
 	 * @param loader  the chunk loader to use, must not be {@code null}
-	 * @param fileSystem  the file system to use, must not be {@code null}
+	 * @param resourceFinder  the resource finder to use, must not be {@code null}
 	 * @return  the {@code loadfile} function
 	 *
 	 * @throws NullPointerException  if {@code fileSystem} or {@code loader} is {@code null}

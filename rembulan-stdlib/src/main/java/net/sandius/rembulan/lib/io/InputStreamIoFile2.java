@@ -23,6 +23,9 @@ import net.sandius.rembulan.ByteString;
 import net.sandius.rembulan.Table;
 import net.sandius.rembulan.lib.IoFile;
 
+/**
+ * 
+ */
 public class InputStreamIoFile2 extends IoFile {
 
   private final ByteBuffer byteBuffer = ByteBuffer.wrap(new byte[16]);
@@ -37,6 +40,13 @@ public class InputStreamIoFile2 extends IoFile {
   private final InputStream in;
   private final SeekableByteChannel channel;
 
+  /**
+   * 
+   * @param in the {@link InputStream} to wrap
+   * @param channel the channel
+   * @param metatable the meta table
+   * @param userValue a user value of any type
+   */
   public InputStreamIoFile2(InputStream in, SeekableByteChannel channel, Table metatable,
       Object userValue) {
     super(metatable, userValue);

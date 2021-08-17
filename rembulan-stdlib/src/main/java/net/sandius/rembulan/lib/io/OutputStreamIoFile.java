@@ -22,10 +22,19 @@ import net.sandius.rembulan.ByteString;
 import net.sandius.rembulan.Table;
 import net.sandius.rembulan.lib.IoFile;
 
+/**
+ * 
+ */
 public class OutputStreamIoFile extends IoFile {
 
   private final SeekableOutputStream out;
 
+  /**
+   * 
+   * @param out the {@link OutputStream} to wrap
+   * @param metatable the metatable
+   * @param userValue a user value of any kind
+   */
   public OutputStreamIoFile(OutputStream out, Table metatable, Object userValue) {
     super(metatable, userValue);
     this.out = new SeekableOutputStream(Objects.requireNonNull(out));

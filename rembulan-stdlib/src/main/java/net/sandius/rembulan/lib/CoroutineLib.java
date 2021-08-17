@@ -260,7 +260,7 @@ public final class CoroutineLib {
 
 		t.rawset("create", create());
 		t.rawset("resume", resume());
-		t.rawset("yield", yield());
+		t.rawset("yield", CoroutineLib.yield());
 		t.rawset("isyieldable", isyieldable());
 		t.rawset("status", status());
 		t.rawset("running", running());

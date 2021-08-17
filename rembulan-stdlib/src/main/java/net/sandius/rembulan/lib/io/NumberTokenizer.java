@@ -5,6 +5,9 @@ import java.nio.ByteBuffer;
 import net.sandius.rembulan.ByteString;
 import net.sandius.rembulan.Conversions;
 
+/**
+ * 
+ */
 public class NumberTokenizer extends AbstractTokenizer<Number> {
 
   Byte lastByte = null;
@@ -14,6 +17,10 @@ public class NumberTokenizer extends AbstractTokenizer<Number> {
   boolean isNegative = false;
   boolean isSignedExp = false;
 
+  /**
+   * 
+   * @param byteBuffer the buffer to use
+   */
   public NumberTokenizer(ByteBuffer byteBuffer) {
     super(byteBuffer);
   }

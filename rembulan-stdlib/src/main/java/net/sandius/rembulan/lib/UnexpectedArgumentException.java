@@ -16,12 +16,29 @@
 
 package net.sandius.rembulan.lib;
 
+/**
+ * 
+ */
 public class UnexpectedArgumentException extends IllegalArgumentException {
 
-	public UnexpectedArgumentException(String message) {
+	/**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 
+     * @param message the message to use for the exception
+     */
+    public UnexpectedArgumentException(String message) {
 		super(message);
 	}
 
+    /**
+     * 
+     * @param expected a {@link String} with the expected value.
+     * @param actual a {@link String} with the actual value that is different from the expected value.
+     */
 	public UnexpectedArgumentException(String expected, String actual) {
 		this(expected + " expected, got " + actual);
 	}

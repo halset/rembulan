@@ -22,11 +22,21 @@ import net.sandius.rembulan.ByteString;
 import net.sandius.rembulan.Table;
 import net.sandius.rembulan.lib.IoFile;
 
+/**
+ * 
+ */
 public class OutputStreamIoFile2 extends IoFile {
 
   private final OutputStream out;
   private final SeekableByteChannel channel;
 
+  /**
+   * 
+   * @param out the OutputStream
+   * @param channel the channel
+   * @param metatable the meta table
+   * @param userValue the user value
+   */
   public OutputStreamIoFile2(OutputStream out, SeekableByteChannel channel, Table metatable,
       Object userValue) {
     super(metatable, userValue);

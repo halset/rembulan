@@ -37,6 +37,11 @@ import net.sandius.rembulan.runtime.ResolvedControlThrowable;
 // See https://www.lua.org/manual/5.3/manual.html
 public abstract class IoFile extends DefaultUserdata {
 
+  /**
+   * 
+   * @param metatable the meta table
+   * @param userValue a user value of any type
+   */
   protected IoFile(Table metatable, Object userValue) {
     super(metatable, userValue);
   }
@@ -63,33 +68,113 @@ public abstract class IoFile extends DefaultUserdata {
     }
   }
 
+  /**
+   * 
+   * @throws ClosedFileException if this is closed
+   */
   protected void checkClosed() throws ClosedFileException {
     if (isClosed()) {
       throw new ClosedFileException();
     }
   }
 
+  /**
+   * 
+   * @return boolean true if closed
+   */
   public abstract boolean isClosed();
 
+  /**
+   * 
+   * @throws IOException when something goes wrong
+   */
   public abstract void close() throws IOException;
 
+  /**
+   * 
+   * @throws IOException when something goes wrong
+   */
   public abstract void flush() throws IOException;
 
+  /**
+   * 
+   * @param s a {@link ByteString} to write
+   * @throws IOException when something goes wrong
+   */
   public abstract void write(ByteString s) throws IOException;
 
+  /**
+   * 
+   * @param returnEol a boolean true if the EOL is to be returned
+   * @return a {@link ByteString} with the line
+   * @throws IOException when something goes wrong
+   */
   public abstract ByteString readLine(boolean returnEol) throws IOException;
 
+  /**
+   * 
+   * @return a {@link Number}
+   * @throws IOException when something goes wrong
+   */
   public abstract Number readNumber() throws IOException;
 
+  /**
+   * 
+   * @return a {@link ByteString} with the rest of the file.
+   * @throws IOException
+   */
   public abstract ByteString readRestOfFile() throws IOException;
 
+  /**
+   * 
+   * @param len a long with the length of the chunk
+   * @return a {@link ByteString} with the read chunk
+   * @throws IOException
+   */
   public abstract ByteString readChunk(long len) throws IOException;
 
+  /**
+   * 
+   */
   public enum Whence {
-    BEGINNING, CURRENT_POSITION, END
+    /**
+     * 
+     */
+    BEGINNING,
+    /**
+     * 
+     */
+    CURRENT_POSITION,
+    /**
+     * 
+     */
+    END
   }
+  
+  /**
+   * 
+   */
   public enum Format {
-    AS_NUMBER, WHOLE_FILE, NEXT_LINE, NEXT_LINE_WITH_EOL, NUMBER_OF_CHARACTERS;
+    /**
+     * 
+     */
+    AS_NUMBER, 
+    /**
+     * 
+     */
+    WHOLE_FILE, 
+    /**
+     * 
+     */
+    NEXT_LINE, 
+    /**
+     * 
+     */
+    NEXT_LINE_WITH_EOL, 
+    /**
+     * 
+     */
+    NUMBER_OF_CHARACTERS;
 
     public static Format get(Object specifier) {
       if (ByteString.of("*n").equals(specifier)) {

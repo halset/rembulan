@@ -22,10 +22,19 @@ import net.sandius.rembulan.ByteString;
 import net.sandius.rembulan.Table;
 import net.sandius.rembulan.lib.IoFile;
 
+/**
+ * 
+ */
 public class InputStreamIoFile extends IoFile {
 
   private final SeekableInputStream in;
 
+  /**
+   * 
+   * @param in the InputStream to use.
+   * @param metatable the meta table.
+   * @param userValue a user value of any type.
+   */
   public InputStreamIoFile(InputStream in, Table metatable, Object userValue) {
     super(metatable, userValue);
     this.in = new SeekableInputStream(Objects.requireNonNull(in));

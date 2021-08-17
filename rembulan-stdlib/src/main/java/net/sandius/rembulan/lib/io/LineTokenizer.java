@@ -4,14 +4,26 @@ import java.nio.ByteBuffer;
 
 import net.sandius.rembulan.ByteString;
 
+/**
+ * 
+ */
 public class LineTokenizer extends AbstractTokenizer<ByteString> {
 
   private boolean returnEol;
 
+  /**
+   * 
+   * @param byteBuffer the {@link ByteBuffer} to use
+   */
   public LineTokenizer(ByteBuffer byteBuffer) {
     this(byteBuffer, false);
   }
 
+  /**
+   * 
+   * @param byteBuffer the {@link ByteBuffer} to use
+   * @param returnEol a boolean to control if EOL is included
+   */
   public LineTokenizer(ByteBuffer byteBuffer, boolean returnEol) {
     super(byteBuffer);
     this.returnEol = returnEol;

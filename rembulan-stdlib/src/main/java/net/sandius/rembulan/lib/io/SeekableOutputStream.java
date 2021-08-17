@@ -20,11 +20,17 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Objects;
 
+/**
+ * 
+ */
 public class SeekableOutputStream extends OutputStream implements SeekableStream {
 
 	private final OutputStream out;
 	private long position;
 
+	/**
+	 * @param out the {@link OutputStream} to wrap
+	 */
 	public SeekableOutputStream(OutputStream out) {
 		this.out = Objects.requireNonNull(out);
 		this.position = 0L;

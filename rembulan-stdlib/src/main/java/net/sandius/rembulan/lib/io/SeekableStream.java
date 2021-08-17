@@ -16,12 +16,29 @@
 
 package net.sandius.rembulan.lib.io;
 
+/**
+ * 
+ */
 public interface SeekableStream {
 
+    /**
+     * 
+     * @return a long with the position
+     */
 	long getPosition();
 
+	/**
+	 * 
+	 * @param newPosition a long with the new position.
+	 * @return a long with the new position
+	 */
 	long setPosition(long newPosition);
 
+	/**
+	 * 
+	 * @param offset a long with number of bytes to jump ahead.
+     * @return a long with the new position
+	 */
 	long addPosition(long offset);
 
 }

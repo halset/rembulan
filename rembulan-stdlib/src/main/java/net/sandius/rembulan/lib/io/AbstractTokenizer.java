@@ -5,19 +5,46 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SeekableByteChannel;
 
+/**
+ *
+ * @param <R> the token type
+ */
 public abstract class AbstractTokenizer<R> {
 
+  /**
+   * 
+   */
   protected static final byte LINE_FEED = (byte) '\n';
 
+  /**
+   * 
+   */
   protected final ByteBuffer byteBuffer;
+  
+  /**
+   * 
+   */
   protected ByteArrayOutputStream output;
+  
+  /**
+   * 
+   */
   protected long skip;
 
+  /**
+   * @param byteBuffer the buffer to use
+   */
   public AbstractTokenizer(ByteBuffer byteBuffer) {
     super();
     this.byteBuffer = byteBuffer;
   }
 
+  /**
+   * 
+   * @param channel the channel to use for positioning
+   * @return the next token or null if there are no more
+   * @throws IOException when somethings go wrong
+   */
   public final R nextToken(SeekableByteChannel channel) throws IOException {
     reset();
     output = new ByteArrayOutputStream();
@@ -64,10 +91,21 @@ public abstract class AbstractTokenizer<R> {
     }
   }
 
+  /**
+   */
   protected abstract void reset();
 
+  /**
+   * 
+   * @param b the byte to handle
+   * @return boolean true if the byte was handled
+   */
   protected abstract boolean handleByte(byte b);
 
+  /**
+   * 
+   * @return a R with the complete content if possible
+   */
   protected abstract R toResult();
 
 }

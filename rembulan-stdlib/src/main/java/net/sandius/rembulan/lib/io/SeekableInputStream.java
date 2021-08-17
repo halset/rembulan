@@ -20,11 +20,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
 
+/**
+ * 
+ */
 public class SeekableInputStream extends InputStream implements SeekableStream {
 
 	private final InputStream in;
 	private long position;
 
+	/**
+	 * 
+	 * @param in the {@link InputStream} to wrap
+	 */
 	public SeekableInputStream(InputStream in) {
 		this.in = Objects.requireNonNull(in);
 		this.position = 0L;

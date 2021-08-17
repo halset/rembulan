@@ -4,8 +4,14 @@ import java.nio.ByteBuffer;
 
 import net.sandius.rembulan.ByteString;
 
+/**
+ * 
+ */
 public class RestOfFileTokenizer extends AbstractTokenizer<ByteString> {
 
+  /**
+   * @param byteBuffer the buffer to use
+   */
   public RestOfFileTokenizer(ByteBuffer byteBuffer) {
     super(byteBuffer);
   }

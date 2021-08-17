@@ -53,6 +53,11 @@ public final class RuntimeEnvironments {
 		return new SystemRuntimeEnvironment(in, out, err);
 	}
 
+	/**
+	 * 
+	 * @param resourceFinder
+	 * @return
+	 */
     public static RuntimeEnvironment system(ResourceFinder resourceFinder) {
         return new SystemRuntimeEnvironment(resourceFinder);
     }
