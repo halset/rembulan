@@ -13,9 +13,9 @@
   </parent>
 -->
 
-  <groupId>net.sandius.rembulan</groupId>
+  <groupId>no.ecc.rembulan</groupId>
   <artifactId>rembulan-parent</artifactId>
-  <version>0.3.3</version>
+  <version>0.3.4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Rembulan parent POM</name>

@@ -6,9 +6,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>net.sandius.rembulan</groupId>
+    <groupId>no.ecc.rembulan</groupId>
     <artifactId>rembulan-parent</artifactId>
-    <version>0.3.3</version>
+    <version>0.3.4-SNAPSHOT</version>
     <relativePath>../rembulan-parent</relativePath>
   </parent>
 
@@ -46,19 +46,19 @@
   <dependencies>
 
     <dependency>
-      <groupId>net.sandius.rembulan</groupId>
+      <groupId>no.ecc.rembulan</groupId>
       <artifactId>rembulan-runtime</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>net.sandius.rembulan</groupId>
+      <groupId>no.ecc.rembulan</groupId>
       <artifactId>rembulan-compiler</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>net.sandius.rembulan</groupId>
+      <groupId>no.ecc.rembulan</groupId>
       <artifactId>rembulan-stdlib</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
@@ -97,7 +97,7 @@
               <goal>build</goal>
             </goals>
             <configuration>
-              <appClass>net.sandius.rembulan.standalone.RembulanConsole</appClass>
+              <appClass>no.ecc.rembulan.standalone.RembulanConsole</appClass>
               <chmod>true</chmod>
               <includeApp>true</includeApp>
               <includeCompileDep>true</includeCompileDep>
