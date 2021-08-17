@@ -16,9 +16,6 @@
 
 package net.sandius.rembulan;
 
-import net.sandius.rembulan.util.ArrayByteIterator;
-import net.sandius.rembulan.util.ByteIterator;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +23,9 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Objects;
+
+import net.sandius.rembulan.util.ArrayByteIterator;
+import net.sandius.rembulan.util.ByteIterator;
 
 /**
  * A byte string backed by a byte array.
@@ -43,6 +43,16 @@ class ArrayByteString extends ByteString {
 
 	@Override
 	protected boolean equals(ByteString that) {
+	    
+	    if (this == that) {
+	        return true;
+	    }
+	    
+        if (that instanceof ArrayByteString) {
+            ArrayByteString thatArrayByteString = (ArrayByteString) that;
+            return Arrays.equals(bytes, thatArrayByteString.bytes);
+        }
+
 		if (this.length() != that.length()) return false;
 
 		int len = this.length();
