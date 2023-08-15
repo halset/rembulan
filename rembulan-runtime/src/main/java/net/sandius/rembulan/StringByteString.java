@@ -51,7 +51,23 @@ class StringByteString extends ByteString {
 
 	@Override
 	protected boolean equals(ByteString that) {
-		if (this.isEmpty() && that.isEmpty()) return true;
+
+        // easiest first
+        if (that == null) {
+            return false;
+        }
+        if (this == that) {
+            return false;
+        }
+        if (this.isEmpty() && that.isEmpty()) {
+            return true;
+        }
+
+        // special handling for same other type
+        if (that instanceof StringByteString) {
+            StringByteString thatStringByteString = (StringByteString) that;
+            return charset.equals(thatStringByteString.charset) && string.equals(thatStringByteString.string);
+        }
 
 		// don't force hashCode computation, but use if already known
 		int thisHash = this.maybeHashCode();

@@ -48,10 +48,16 @@ class ArrayByteString extends ByteString {
 	        return true;
 	    }
 	    
+	    // special handling for same other type
         if (that instanceof ArrayByteString) {
             ArrayByteString thatArrayByteString = (ArrayByteString) that;
             return Arrays.equals(bytes, thatArrayByteString.bytes);
         }
+        
+        // don't force hashCode computation, but use if already known
+        int thisHash = this.maybeHashCode();
+        int thatHash = that.maybeHashCode();
+        if (thisHash != 0 && thatHash != 0 && thisHash != thatHash) return false;
 
 		if (this.length() != that.length()) return false;
 
