@@ -1151,7 +1151,7 @@ public final class Dispatch {
 		    Object handlerA = Metatables.getMetamethod(context, Metatables.MT_EQ, a);
 		    Object handlerB = Metatables.getMetamethod(context, Metatables.MT_EQ, b);
 		    if (handlerA != null && !handlerA.equals(handlerB)) {
-	                    context.getReturnBuffer().setTo(false);
+	                    context.getReturnBuffer().setTo(false == polarity); 
 	                    return;
 		    }
 
