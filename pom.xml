@@ -32,6 +32,10 @@
     <connection>scm:git:git://github.com/mjanicek/rembulan.git</connection>
     <url>https://github.com/mjanicek/rembulan/tree/master</url>
   </scm>
+  
+  <properties>
+      <maven.compiler.release>17</maven.compiler.release>
+  </properties>
 
   <modules>
     <module>rembulan-parent</module>

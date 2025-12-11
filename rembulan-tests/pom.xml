@@ -40,8 +40,9 @@
   </scm>
 
   <properties>
-    <scala.binary.version>2.12</scala.binary.version>
-    <scala.version>${scala.binary.version}.11</scala.version>
+    <maven.compiler.release>17</maven.compiler.release>
+    <scala.binary.version>2.13.18</scala.binary.version>
+    <scala.version>${scala.binary.version}</scala.version>
   </properties>
 
   <dependencies>
@@ -87,8 +88,8 @@
 
     <dependency>
       <groupId>org.scalatest</groupId>
-      <artifactId>scalatest_${scala.binary.version}</artifactId>
-      <version>3.1.1</version>
+      <artifactId>scalatest_3</artifactId>
+      <version>3.2.19</version>
       <scope>test</scope>
       <exclusions>
           <!-- ScalaTest depends on scala-library. Maven doesn't know that within
@@ -118,12 +119,12 @@
         <plugin>
           <groupId>net.alchim31.maven</groupId>
           <artifactId>scala-maven-plugin</artifactId>
-          <version>3.6.3</version>
+          <version>4.9.7</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.1</version>
+          <version>3.14.1</version>
         </plugin>
       </plugins>
     </pluginManagement>

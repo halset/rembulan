@@ -39,6 +39,10 @@
     <url>https://github.com/mjanicek/rembulan/tree/master</url>
   </scm>
 
+  <properties>
+      <maven.compiler.release>17</maven.compiler.release>
+  </properties>
+
   <dependencies>
 
     <dependency>
