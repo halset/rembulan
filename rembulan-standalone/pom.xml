@@ -8,7 +8,7 @@
   <parent>
     <groupId>no.ecc.rembulan</groupId>
     <artifactId>rembulan-parent</artifactId>
-    <version>0.3.6</version>
+    <version>0.3.7</version>
     <relativePath>../rembulan-parent</relativePath>
   </parent>
 

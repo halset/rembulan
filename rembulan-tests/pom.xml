@@ -8,7 +8,7 @@
   <parent>
     <groupId>no.ecc.rembulan</groupId>
     <artifactId>rembulan-parent</artifactId>
-    <version>0.3.6</version>
+    <version>0.3.7</version>
     <relativePath>../rembulan-parent</relativePath>
   </parent>
 
@@ -88,27 +88,27 @@
 
     <dependency>
       <groupId>org.scalatest</groupId>
-      <artifactId>scalatest_3</artifactId>
-      <version>3.2.19</version>
+      <artifactId>scalatest_2.12</artifactId>
+      <version>3.1.1</version>
       <scope>test</scope>
       <exclusions>
           <!-- ScalaTest depends on scala-library. Maven doesn't know that within
                a given minor version (e.g. 2.11.x), Scala is binary-compatible,
                so we ignore the dependency it in order to avoid Maven warnings. -->
-        <exclusion>
+        <!--exclusion>
           <groupId>org.scala-lang</groupId>
           <artifactId>scala-library</artifactId>
-        </exclusion>
+        </exclusion-->
       </exclusions>
     </dependency>
 
     <!-- Apparently needed by ScalaTest, to be removed as soon as possible -->
-    <dependency>
+    <!--dependency>
       <groupId>org.scala-lang.modules</groupId>
       <artifactId>scala-xml_2.11</artifactId>
       <version>1.0.1</version>
       <scope>test</scope>
-    </dependency>
+    </dependency-->
 
   </dependencies>
 
